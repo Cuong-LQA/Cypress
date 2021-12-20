@@ -11,5 +11,5 @@
 *Note*
 1. Asyncronous in Cypress
 - Async in Cypress is not like in javascript (that why we cannot use await - if want to use we must use library such as cypress-promise in this project)
-- It is async so all cypress commands will run async and Cypress controll it internally. Async code will run after all normal javascript code run
-- Async code will run by order (like FIFO)
+- Cypress controll async code internally.
+- Async code will run by order (like FIFO). Async code will run after all normal javascript code run
