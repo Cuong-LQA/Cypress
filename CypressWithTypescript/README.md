@@ -4,4 +4,5 @@
 
 3: Note down some problems when create project
 
-	- 
+	- File tsconfig.json must be done first. Especially for field "Types". This will tells to use cypress, cypress-xpath
+	(as a function)
