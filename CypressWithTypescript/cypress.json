@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://www.hotdeal.vn/",
+  "testFiles": [
+    "**/*.spec.ts"
+  ],
+  "chromeWebSecurity": false
+}
