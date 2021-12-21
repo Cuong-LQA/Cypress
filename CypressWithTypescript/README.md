@@ -17,4 +17,5 @@
 2. Check condition method of should in this: \node_modules\cypress\types\cypress.d.ts - interface Chainer<Subject>
 
 3. One thing to note: when change this file to TS (support/index.ts) => it will alarm for _"require('cypress-xpath')"_ but all tests still run. Don't know why
-This discussion https://github.com/cypress-io/cypress/issues/1118 suggest to add a config to tsconfig.json to run it but I haven't figure it out why
+This discussion https://github.com/cypress-io/cypress/issues/1118 suggest to add a config to tsconfig.json to run it but I haven't figure it out why. After that,
+I change require('cypress-xpath') to import 'cypress-xpath' and everything seem to be good. No alarm, code still running (if comment this import, the code will fail)
