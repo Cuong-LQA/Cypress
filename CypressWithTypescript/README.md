@@ -5,8 +5,8 @@
 3: Note down some problems when create project
 
 	- File tsconfig.json must be done first. Especially for field "Types". This will tells to use cypress, cypress-xpath (as a function)
-	- To use cypress-xpath, beside addind it in tsconfig.json, we need to add "require("cypress-xpath")" in support/index.js
-	- This project you cypress-promise to convert cypress async to promise
+	- To use cypress-xpath, beside adding it in tsconfig.json, we need to add "require("cypress-xpath")" in support/index.js
+	- This project uses "cypress-promise" library to convert cypress async to promise like normal javascript
 	
 *Note*
 1. Asyncronous in Cypress
@@ -16,5 +16,5 @@
 
 2. Check condition method of should in this: \node_modules\cypress\types\cypress.d.ts - interface Chainer<Subject>
 
-3. One thing to note: when change file to support/index.ts => it will alarm for require but all tests still run. Don't know why
-This discussion in link suggest to add a config to tsconfig.json to run it but I havent figure it out https://github.com/cypress-io/cypress/issues/1118 
+3. One thing to note: when change this file to TS (support/index.ts) => it will alarm for _"require('cypress-xpath')"_ but all tests still run. Don't know why
+This discussion https://github.com/cypress-io/cypress/issues/1118 suggest to add a config to tsconfig.json to run it but I haven't figure it out why
