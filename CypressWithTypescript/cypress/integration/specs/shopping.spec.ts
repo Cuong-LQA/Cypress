@@ -1,10 +1,6 @@
 import {HomePage} from "../../pages/home.page";
 import {BASE_URL} from "../constant/value";
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false;
-})
-
 describe('Testing shopping function', () => {
     const homePage = new HomePage()
 

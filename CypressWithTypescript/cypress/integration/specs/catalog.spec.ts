@@ -2,10 +2,6 @@ import {HomePage} from "../../pages/home.page";
 import {BASE_URL} from "../constant/value";
 import {LOCATION} from "../locators/signup-page.locator";
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false;
-})
-
 describe('Testing catalog function', () => {
     const homePage = new HomePage()
 

@@ -2,11 +2,6 @@ import {BASE_URL, USER_INFO} from "../constant/value";
 import {HomePage} from "../../pages/home.page";
 import {GENDER_ID, LOCATION, MONTH} from "../locators/signup-page.locator";
 
-// TODO: this command avoids test fail because of fail loading
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false;
-});
-
 describe('Testing sign up function', () => {
     const homePage = new HomePage()
 
