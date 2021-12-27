@@ -5,7 +5,7 @@
 3: Note down some problems when create project
 
 	- File tsconfig.json must be done first. Especially for field "Types". This will tells to use cypress, cypress-xpath (as a function)
-	- To use cypress-xpath, beside adding it in tsconfig.json, we need to add "require("cypress-xpath")" in support/index.js
+	- To use cypress-xpath, beside adding it in tsconfig.json, we need to add "require("cypress-xpath")" in support/index.ts
 	- This project uses "cypress-promise" library to convert cypress async to promise like normal javascript
 	
 *Note*
