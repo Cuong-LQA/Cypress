@@ -11,7 +11,8 @@
   "devDependencies": {
     "cypress": "^9.1.1",
     "cypress-promise": "^1.1.0",
-    "cypress-xpath": "^1.6.2"
+    "cypress-xpath": "^1.6.2",
+    "eslint-plugin-cypress": "^2.12.1"
   },
   "dependencies": {
     "typescript": "^4.5.4"

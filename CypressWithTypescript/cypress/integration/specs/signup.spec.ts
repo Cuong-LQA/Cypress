@@ -3,14 +3,13 @@ import {HomePage} from "../../pages/home.page";
 import {GENDER_ID, LOCATION, MONTH} from "../locators/signup-page.locator";
 
 describe('Testing sign up function', () => {
-    const homePage = new HomePage()
+    let homePage = new HomePage()
 
     beforeEach(() => {
         cy.visit(BASE_URL)
-        // cy.visit('https://example.cypress.io/todo')
     });
 
-    it.only('Sign up with wrong email format - 1st', () => {
+    it('Sign up with wrong email format - 1st', () => {
         let signUpPage = homePage.selectLocation(LOCATION.HA_NOI).clickSignUp()
         signUpPage.inputEmail(USER_INFO.INVALID_EMAIL).verifyWrongFormat()
     })
@@ -24,6 +23,8 @@ describe('Testing sign up function', () => {
             .reInputPassword(password)
             .selectDateOfBirth('1999', MONTH['1'], '1')
             .selectGender(GENDER_ID.MALE)
-            .signup().verifySignUpSuccess()
+            .signup()
+        // .verifySignUpSuccess()
+        // the verify success sign up is commented because of the website remove the success announcement pop up
     })
 })

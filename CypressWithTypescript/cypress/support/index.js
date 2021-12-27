@@ -19,6 +19,8 @@ require('cypress-xpath')
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+//This is an event. Put it here to run this event in all test file
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
