@@ -15,15 +15,18 @@ describe('Testing api', () => {
 })
 
 describe('testing the order of cypress command', () => {
-    it('should be log number in order', function () {
+    it.only('should be log number in order', function () {
         console.log('1')
         cy.visit('https://www.cypress.io/')
         cy.xpath('//div[@class="styled__MenuWrapper-sc-16oj5lj-1 cGpLxq"]//li[@class="styled__NavItem-sc-16oj5lj-4 iqFVFJ"]/a')
             .then($el => {
-                cy.xpath('(//a[@href="/dashboard"])[1]').then($el => console.log('2'))
-                cy.xpath('(//a[@href="/dashboard"])[1]').then($el => console.log('3'))
-                console.log('4')
+                cy.xpath('(//a[@href="/dashboard"])[1]').then($el => {
+                    console.log('2')
+                    cy.xpath('(//a[@href="/dashboard"])[1]').then($el => console.log('3'))
+                })
+                cy.xpath('(//a[@href="/dashboard"])[1]').then($el => console.log('4'))
+                console.log('5')
             })
-        console.log('5')
+        console.log('6')
     });
 })
