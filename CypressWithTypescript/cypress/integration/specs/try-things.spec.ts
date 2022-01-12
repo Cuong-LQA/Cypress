@@ -32,7 +32,7 @@ describe('testing the order of cypress command', () => {
 })
 
 describe('testing upload file', () => {
-    it.only('html5 input', function (){
+    it('html5 input', function (){
         const p = 'Daisy01.jpg'
         cy.visit("https://the-internet.herokuapp.com/upload")
         cy.get('#file-upload').attachFile(p)
@@ -44,9 +44,29 @@ describe('testing upload file', () => {
         // cy.xpath(' //button[text()="Get photos from your computer"]').should('exist').attachFile(p)
     });
 
-    it('drag an drop picture', () => {
-        cy.visit('https://www.google.com/search?q=daisy&tbm=isch&ved=2ahUKEwjQkoPD6Kj1AhWUTPUHHc-5C4QQ2-cCegQIABAA&oq=daisy&gs_lcp=CgNpbWcQAzoFCAAQgAQ6BAgAEEM6BQgAELEDOggIABCxAxCDAToICAAQgAQQsQM6CwgAEIAEELEDEIMBUK8KWMsPYMgRaABwAHgAgAGEAYgB6gWSAQMwLjaYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=hAHdYdDAAZSZ1e8Pz_OuoAg&bih=927&biw=1146&hl=en-US')
-        cy.xpath('//input[@id="REsRA"]')
-            .attachFile('Daisy01.jpg', { subjectType: 'drag-n-drop' })
+    it.only('drag an drop picture', () => {
+        //Todo: I find that it requires the upload must be input tag to use. Not so sure but try these test below.
+        // Event when it's input, still not work like first test. The third works, it have input is a css as a box - maybe this is why
+
+        const p = 'Daisy01.jpg'
+
+        //This work if use drag-n-drop, remove option field will cause fail
+        cy.visit('https://pasteboard.co/')
+        cy.xpath('//input[@class="file-upload-text"]').attachFile(p, {subjectType: "drag-n-drop"})
+        cy.xpath('//span[text()="Upload"]').click()
+        cy.xpath('//a[@class="link button"]', {timeout: 10000}).should('exist').click()
+
+        //This website cannot use this attachFile
+        cy.visit('https://vi.imgbb.com/')
+        cy.xpath('//a[@class="btn btn-big blue"]')
+            .should('exist')
+            .attachFile(p, {subjectType: "drag-n-drop"})
+
+        // This ones works
+        cy.visit('https://practice.automationbro.com/cart')
+        cy.get("input[type=file]")
+            .attachFile(p)
+        cy.get("input[value='Upload File']")
+            .click()
     })
 })
