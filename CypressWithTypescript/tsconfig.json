@@ -104,7 +104,7 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6", "dom"],
-    "types": ["cypress", "cypress-xpath"],
+    "types": ["cypress", "cypress-xpath", "cypress-file-upload"],
     "allowJs": true
   },
   "include": ["**/*.ts"],
