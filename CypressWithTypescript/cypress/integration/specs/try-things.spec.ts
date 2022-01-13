@@ -32,7 +32,7 @@ describe('testing the order of cypress command', () => {
 })
 
 describe('testing upload file', () => {
-    it('html5 input', function (){
+    it('html5 input with heroku web', function (){
         const p = 'Daisy01.jpg'
         cy.visit("https://the-internet.herokuapp.com/upload")
         cy.get('#file-upload').attachFile(p)
@@ -44,9 +44,9 @@ describe('testing upload file', () => {
         // cy.xpath(' //button[text()="Get photos from your computer"]').should('exist').attachFile(p)
     });
 
-    it.only('drag an drop picture', () => {
-        //Todo: I find that it requires the upload must be input tag to use. Not so sure but try these test below.
-        // Event when it's input, still not work like first test. The third works, it have input is a css as a box - maybe this is why
+    it.only('html4, drag an drop picture', () => {
+        //Todo: Maybe it works with input tag only. Event when it's input, still not work like first test.
+        // The third works, it have input is a css as a box - maybe this is why
 
         const p = 'Daisy01.jpg'
 
@@ -56,17 +56,17 @@ describe('testing upload file', () => {
         cy.xpath('//span[text()="Upload"]').click()
         cy.xpath('//a[@class="link button"]', {timeout: 10000}).should('exist').click()
 
-        //This website cannot use this attachFile
-        cy.visit('https://vi.imgbb.com/')
-        cy.xpath('//a[@class="btn btn-big blue"]')
-            .should('exist')
-            .attachFile(p, {subjectType: "drag-n-drop"})
+        // //This website cannot use this attachFile
+        // cy.visit('https://vi.imgbb.com/')
+        // cy.xpath('//a[@class="btn btn-big blue"]')
+        //     .should('exist')
+        //     .attachFile(p, {subjectType: "drag-n-drop"})
 
-        // This ones works
-        cy.visit('https://practice.automationbro.com/cart')
-        cy.get("input[type=file]")
-            .attachFile(p)
-        cy.get("input[value='Upload File']")
-            .click()
+        // // This works
+        // cy.visit('https://practice.automationbro.com/cart')
+        // cy.get("input[type=file]")
+        //     .attachFile(p)
+        // cy.get("input[value='Upload File']")
+        //     .click()
     })
 })
